@@ -1,0 +1,4 @@
+For planning route and tracking gpr used local stereographic system, the origin is the centroid of project area.
+
+Proj:
++proj=stere +lat_0=[centroid_lat] +lon_0=[centroid_lon] +ellps=GRS80  +units=m +no_defs
