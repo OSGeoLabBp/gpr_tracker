@@ -1,0 +1,4 @@
+Queue writer and reader into Ulyxes
+serial, bluetooth, local interface, jsonconfig, nmeagnsss from ulyxes
+standalone GNSS thread
+display thread in QGIS
