@@ -52,12 +52,12 @@ class GPRTrackerDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
 
     def state(self):
         if self.trackOn.isChecked():
-            # TODO disable all widget during tracking except checkbox
+            # disable all widget during tracking except checkbox
             self.trackLayer.setEnabled(False)
             self.trackColor.setEnabled(False)
             self.plugin.startTracking(True)
         else:
-            # TODO enable all widget if tracking off
+            # enable all widget if tracking off
             self.trackLayer.setEnabled(True)
             self.trackColor.setEnabled(True)
             self.plugin.startTracking(False)
