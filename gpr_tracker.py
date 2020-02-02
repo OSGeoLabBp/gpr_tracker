@@ -8,7 +8,7 @@
                               -------------------
         begin                : 2020-01-26
         git sha              : $Format:%H$
-        copyright            : (C) 2020 by OsGeoLabBP
+        copyright            : (C) 2020 by OSGeoLabBP
         email                : siki.zoltan@epito.bme.hu
  ***************************************************************************/
 
@@ -21,6 +21,7 @@
  *                                                                         *
  ***************************************************************************/
 """
+
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
@@ -28,11 +29,13 @@ from qgis.PyQt.QtWidgets import QAction
 from .resources import *
 
 # Import the code for the DockWidget
-from .gpr_tracker_dockwidget import GPRTrackerDockWidget
+from gpr_tracker_dockwidget import GPRTrackerDockWidget
 import os.path
 import threading
 import queue
-from .gnssreader import GNSSReader
+from gnssreader import GNSSReader
+from confreader import ConfReader
+from gpr_conf import config_pars
 
 class GPRTracker:
     """QGIS GPR Tracking plugin Implementation."""
@@ -71,10 +74,12 @@ class GPRTracker:
         self.pluginIsActive = False
         self.dockwidget = None
         self.tracking = False
+        # read config params
+        self.conf = ConfReader('gpr', 'default.json', None, config_pars)
         # queue for GNSS positions
         self.posQueue = queue.Queue()
         # create GNSS reader thread
-        self.GNSS = GNSSReader()    # TODO parameters serial/bluetooth ...
+        self.GNSS = GNSSReader(self.conf)    # TODO parameters serial/bluetooth ...
         self.GNSSThread = threading.Thread(target=self.GNSS.do,
             args=(self.posQueue,))
         self.positionThread = threading.Thread(target=self.addPoint, 

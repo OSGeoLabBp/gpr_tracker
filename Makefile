@@ -39,13 +39,13 @@ LRELEASE = /usr/lib/qt5/bin/lrelease
 # translation
 SOURCES = \
 	__init__.py \
-	gpr_tracker.py gpr_tracker_dockwidget.py
+	gpr_tracker.py gpr_tracker_dockwidget.py gpr_conf.py
 
 PLUGINNAME = gpr_tracker
 
 PY_FILES = \
 	__init__.py \
-	gpr_tracker.py gpr_tracker_dockwidget.py
+	gpr_tracker.py gpr_tracker_dockwidget.py gpr_conf.py
 
 UI_FILES = gpr_tracker_dockwidget_base.ui
 

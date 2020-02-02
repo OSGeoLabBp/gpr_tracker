@@ -1,4 +1,8 @@
-Queue writer and reader into Ulyxes
 serial, bluetooth, local interface, jsonconfig, nmeagnsss from ulyxes
 standalone GNSS thread
 display thread in QGIS
+check QtThread from qgis.PyQt.QtCore is better (threading class)
+
+--------------------------------------------------------------------------------
+Solved
+Queue writer and reader into Ulyxes
